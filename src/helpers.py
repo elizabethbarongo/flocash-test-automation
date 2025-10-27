@@ -8,7 +8,6 @@ class AuthHelper:
         if self.config.basic_auth_username and self.config.basic_auth_password:
             return HTTPBasicAuth(self.config.basic_auth_username, self.config.basic_auth_password)
         return None
-
     def build_headers(self):
         return {
             "Content-Type": "application/json",
