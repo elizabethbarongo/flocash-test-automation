@@ -32,9 +32,6 @@ table {
   border-collapse: collapse;
 }
 
-/******************************
- * SUMMARY INFORMATION
- ******************************/
 #environment td {
   padding: 5px;
   border: 1px solid #e6e6e6;
@@ -48,9 +45,6 @@ table {
   padding: 0 20px;
 }
 
-/******************************
- * TEST RESULT COLORS
- ******************************/
 span.passed,
 .passed .col-result {
   color: green;
@@ -532,7 +526,6 @@ const dom = {
         })
 
         if (log) {
-            // Wrap lines starting with "E" with span.error to color those lines red
             const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
             resultBody.querySelector('.log').innerHTML = wrappedLog
         } else {
@@ -558,7 +551,6 @@ const dom = {
         })
         mediaViewer.setup(resultBody, media)
 
-        // Add custom html from the pytest_html_results_table_html hook
         tableHtml?.forEach((item) => {
             resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
         })
@@ -876,7 +868,6 @@ const genericSort = (list, key, ascending, customOrder) => {
             const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
             const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
 
-            // Compare the indices to determine the sort order
             return aIndex - bIndex
         })
     } else {
